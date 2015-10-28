@@ -271,6 +271,25 @@ var conf = convict({
       default: ''
     }
   },
+  verificationReminder: {
+    enabled: {
+      doc: 'Is verification reminder enabled',
+      format: Boolean,
+      env: 'VERIFICATION_REMINDER_ENABLED',
+      default: false
+    },
+    queueUrl: {
+      doc: 'The verification reminder queue URL to use (should include https://sqs.<region>.amazonaws.com/<account-id>/<queue-name>)',
+      format: String,
+      env: 'VERIFICATION_REMINDER_QUEUE_URL',
+      default: ''
+    },
+    queueRate: {
+      doc: 'Percentage of users getting the verification reminder',
+      default: 0.1,
+      env: 'VERIFICATION_REMINDER_RATE'
+    }
+  },
   useHttps: {
     doc: 'set to true to serve directly over https',
     env: 'USE_TLS',
